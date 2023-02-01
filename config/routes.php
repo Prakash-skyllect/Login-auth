@@ -23,6 +23,7 @@
 
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
+use Cake\Routing\Router;
 
 return static function (RouteBuilder $routes) {
     /*
@@ -43,6 +44,15 @@ return static function (RouteBuilder $routes) {
      * `{action}` markers.
      */
     $routes->setRouteClass(DashedRoute::class);
+
+    Router::prefix('api',function($routes){
+
+        $routes->setExtensions(['json', 'xml']);
+        $routes->resources('Users');
+        //Router::connect('/api/users/register', ['controller' => 'Users', 'action' => 'add', 'prefix' => 'api']);
+//        Router::connect('users/check_token', ['controller' => 'Users', 'action' => 'check_token', 'prefix' => 'api']);
+        $routes->fallbacks('InflectedRoute');
+    });
 
     $routes->scope('/', function (RouteBuilder $builder) {
         /*

@@ -30,7 +30,8 @@
         display: inline-block;
         position: relative;
         border-radius: 50px;
-        background: #00c9b7;
+        /*background: #00c9b7;*/
+        background: #d369b6;
         width: 180px;
         height: 50px;
         color: #fff;
@@ -43,6 +44,7 @@
         -o-transition: all 0.5s;
         transition: all 0.5s;
         text-transform: uppercase;
+
     }
 
     label{
@@ -62,7 +64,10 @@
     span{
         color: hotpink!important;
     }
-
+    .home{
+        padding-bottom: 2px;
+        border-bottom: 2px solid #d369b6;
+    }
 
 </style>
 <body>
@@ -71,7 +76,7 @@
         <a href="<?php echo$this->Url->build('/') ?>"><span>Prakash</span>Kudale</a>
     </div>
     <div class="top-nav-links">
-        <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Home</a>
+        <a class="home" target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Home</a>
         <a target="_blank" rel="noopener" href="https://api.cakephp.org/">About</a>
         <a target="_blank" rel="noopener" href="https://api.cakephp.org/">Service</a>
     </div>

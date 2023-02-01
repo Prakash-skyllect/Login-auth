@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-
 use Cake\Event\EventInterface;
 
 class UsersController extends AppController
@@ -81,12 +80,14 @@ class UsersController extends AppController
 
         $ragisterUser = $this->Users->newEmptyEntity();
 
+//        pr($ragisterUser);die();
+
         if($this->request->is('post')){
             $ragisterUser = $this->Users->patchEntity($ragisterUser,$this->request->getData());
 
             if ($this->Users->save($ragisterUser)){
-                $this->Flash->success('The user has been updated');
-                return $this->redirect(['action'=>'index']);
+                $this->Flash->success('Account Register Successfully Now You can Login');
+                return $this->redirect(['action'=>'login']);
             }
             $this->Flash->error('The user could not be saved. Please, try again.');
         }
@@ -109,6 +110,6 @@ class UsersController extends AppController
     public function logout(){
          $session = $this->request->getSession();
          $session->destroy();
-         return $this->redirect(['action' => 'login']); 
+         return $this->redirect(['action' => 'login']);
     }
 }

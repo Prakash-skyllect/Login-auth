@@ -179,7 +179,7 @@
     <?= $this->Form->button('save')?>
     <a href="registration" class="signup_btn">Signup</a>
     <div class="pass_link">
-        <?= $this->Html->link('Forget Password?',["action" => 'forgetpass'],['class' => 'forget-link']) ?>
+<!--        --><?php //echo $this->Html->link('Forget Password?',["action" => 'forgetpass'],['class' => 'forget-link']) ?>
     </div>
     <?= $this->Form->end(); ?>
 
