@@ -66,6 +66,15 @@ return static function (RouteBuilder $routes) {
          * ...and connect the rest of 'Pages' controller's URLs.
          */
         $builder->connect('/pages/*', 'Pages::display');
+        // Student Routes
+        $builder->connect('/add-student', ['controller' => 'Students', 'action' => 'addStudent']);
+        $builder->connect('/edit-student/:id', ['controller' => 'Students', 'action' => 'editStudent'], ["pass" => ["id"]]);
+        $builder->connect('/list-students', ['controller' => 'Students', 'action' => 'listStudents']);
+
+        // Ajax Routes
+        $builder->connect('/ajax-add-student', ['controller' => 'Ajax', 'action' => 'ajaxAddStudent']);
+        $builder->connect('/ajax-edit-student', ['controller' => 'Ajax', 'action' => 'ajaxEditStudent']);
+        $builder->connect('/ajax-delete-student', ['controller' => 'Ajax', 'action' => 'ajaxDeleteStudent']);
 
         /*
          * Connect catchall routes for all controllers.

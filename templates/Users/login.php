@@ -61,6 +61,7 @@
         color: rgb(55, 65, 81);
     }
     input {
+        padding: 0 5px;
         width: 100%;
         line-height: 3rem;
         background-color: rgb(229, 231, 235);

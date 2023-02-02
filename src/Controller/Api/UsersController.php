@@ -84,10 +84,10 @@ class UsersController extends AppController
     public function edit($id = null)
     {
         $edit = $this->Users->get($id);
-//        pr($edit);die();
+
         if ($this->request->is(['post', 'patch', 'put'])) {
             $edit = $this->Users->patchEntity($edit, $this->request->getData());
-
+            pr($edit);die();
             if ($this->Users->save($edit)) {
                 $this->set([
                     'success' => true,
@@ -115,34 +115,17 @@ class UsersController extends AppController
             $view = $this->Users->get($id);
             $this->set([
                 'success' => true,
-                'message' => 'View Ho gya',
+//                'message' => 'View Ho gya',
                 'data' => $view,
                 '_serialize' => ['success','message','data']
             ]);
-            ?>
-            <div style="background-color: lightblue; padding: 10px; margin-bottom: 40px">
-                <h1 style="color: #ff6f6f; text-align: center">Welcome <?= $view->name?></h1>
-                <label style="font-size: 30px; ">
-                    ID : <?= $view->id?>
-                </label>
-                <hr>
-                <label style="font-size: 30px;">
-                    Name : <?= $view->name?>
-                </label>
-                <hr>
-                <label style="font-size: 30px;">
-                    Email : <?= $view->email?>
-                </label>
-                <br>
-                <br>
-            </div>
-            <?php
+
             $this->RequestHandler->renderAs($this, 'Json');
             return;
         }catch (\Exception $e){
             $this->set([
                 'success' => false,
-                'message' => 'View Ho gya',
+                'message' => 'Nahi Hua ',
                 'data' => $e->getMessage(),
                 '_serialize' => ['success','message','data']
             ]);

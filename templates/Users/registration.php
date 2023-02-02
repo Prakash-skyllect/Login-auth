@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
 </head>
 <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?>
 <style>
@@ -87,8 +88,32 @@
 <?= $this->Form->Control('name') ?>
 <?= $this->Form->Control('email') ?>
 <?= $this->Form->Control('password') ?>
-<?= $this->Form->button('register',['class'=>'register_btn']) ?>
+<?= $this->Form->button('register',['class'=>'register_btn','id'=>'btn_register']) ?>
 
 <?= $this->Form->end() ?>
+
+
+<script>
+    $(document).ready(function (){
+        $("#btn_register").click(function (e){
+            e.preventDefault();
+            var username = $("#name").val();
+            var email = $("#email").val();
+            var pass = $("#password").val();
+
+
+            console.log('clicked')
+           $.ajax({
+               method : "POST",
+               url : "<?= $this->Url->build(['controller'=>'Users','action'=>'add']);?>",
+               data:{
+                   name : username,
+                   email : email,
+                   password : pass
+               }
+           })
+        })
+    })
+</script>
 </body>
 </html>

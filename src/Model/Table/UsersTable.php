@@ -52,16 +52,17 @@ class UsersTable extends Table
     {
         $validator
             ->scalar('name')
-            ->maxLength('name', 100);
+            ->maxLength('name', 100)
+            ->notEmptyString('name');
 
         $validator
             ->email('email')
-            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
-
+            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table'])
+            ->notEmptyString('email');
         $validator
             ->scalar('password')
-            ->maxLength('password', 150);
-
+            ->maxLength('password', 150)
+           ->notEmptyString('password');
 
         return $validator;
     }

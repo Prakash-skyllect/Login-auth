@@ -3,6 +3,10 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User $user
  */
+$std_name = $_POST['name'];
+$std_email= $_POST['email'];
+$std_password= $_POST['password'];
+echo $std_name;
 ?>
 <div class="row">
     <aside class="column">
